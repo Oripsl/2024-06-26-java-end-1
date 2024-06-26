@@ -1,3 +1,5 @@
+package mattina;
+
 public class Contatto {
     private String nome;
     private String numeroDiTelefono;

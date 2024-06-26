@@ -1,3 +1,5 @@
+package mattina;
+
 public class ContoBancario {
     private Double conto = 0d;
 

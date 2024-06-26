@@ -4,14 +4,21 @@ public abstract class CameraAlbergo {
     private int numero;
     private boolean disponibile;
 
-    public CameraAlbergo(int numero) {
+    private int numeroLetti;
+
+    public CameraAlbergo(int numero, int numeroLetti) {
         this.numero = numero;
+        this.numeroLetti = numeroLetti;
         this.disponibile = true;
     }
 
     public abstract double calcolaCosto();
 
-    public abstract int numeroLetti();
+    public abstract int getNumeroLetti();
+
+    public int getLetti() {
+        return numeroLetti;
+    }
 
     public int getNumero() {
         return numero;

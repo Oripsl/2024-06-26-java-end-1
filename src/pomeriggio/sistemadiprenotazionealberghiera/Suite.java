@@ -1,17 +1,19 @@
 package pomeriggio.sistemadiprenotazionealberghiera;
 
 public class Suite extends CameraAlbergo {
-    public Suite(int numero) {
-        super(numero);
+    public Suite(int numero, int numeroLetti) {
+        super(numero, numeroLetti);
     }
 
     @Override
     public double calcolaCosto() {
-        return 110.0;
+        return 110.0 * getNumeroLetti();
     }
 
     @Override
-    public int numeroLetti() {
-        return 4;
+    public int getNumeroLetti() {
+        return getLetti();
     }
+
+
 }

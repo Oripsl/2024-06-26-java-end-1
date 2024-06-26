@@ -173,7 +173,7 @@ public class Main {
             if (cancellata) {
                 System.out.println("Prenotazione 1 cancellata con successo");
             }
-        } catch (Exception e) {
+        } catch (IllegalAccessException | IllegalArgumentException e) {
             System.out.println("Errore nella cancellazione della prenotazione: " + e.getMessage());
         }
 
@@ -182,7 +182,7 @@ public class Main {
             if (cancellata) {
                 System.out.println("Prenotazione 2 cancellata con successo");
             }
-        } catch (Exception e) {
+        } catch (IllegalAccessException | IllegalArgumentException e) {
             System.out.println("Errore nella cancellazione della prenotazione: " + e.getMessage());
         }
     }
@@ -190,13 +190,13 @@ public class Main {
     public static void checkSistemaAlbergo() {
         List<CameraAlbergo> albergo = new ArrayList<>();
 
-        albergo.add(new CameraSingola(101));
-        albergo.add(new CameraDoppia(102));
-        albergo.add(new Suite(103));
+        albergo.add(new CameraSingola(101, 2));
+        albergo.add(new CameraDoppia(102, 2));
+        albergo.add(new Suite(103, 3));
 
         List<CameraAlbergo> camereDisponibili = albergo.stream().filter(CameraAlbergo::isDisponibile).toList();
         for (CameraAlbergo camera : camereDisponibili) {
-            System.out.println("Camera numero: " + camera.getNumero() + ", Tipo: " + camera.getClass().getSimpleName() + ", Costo: " + camera.calcolaCosto() + " Euro, Letti: " + camera.numeroLetti());
+            System.out.println("Camera numero: " + camera.getNumero() + ", Tipo: " + camera.getClass().getSimpleName() + ", Costo: " + camera.calcolaCosto() + " Euro, Letti: " + camera.getNumeroLetti());
         }
 
         if (!camereDisponibili.isEmpty()) {
@@ -207,7 +207,7 @@ public class Main {
 
         camereDisponibili = albergo.stream().filter(CameraAlbergo::isDisponibile).toList();
         for (CameraAlbergo camera : camereDisponibili) {
-            System.out.println("Camera numero: " + camera.getNumero() + ", Tipo: " + camera.getClass().getSimpleName() + ", Costo: " + camera.calcolaCosto() + " Euro, Letti: " + camera.numeroLetti());
+            System.out.println("Camera numero: " + camera.getNumero() + ", Tipo: " + camera.getClass().getSimpleName() + ", Costo: " + camera.calcolaCosto() + " Euro, Letti: " + camera.getNumeroLetti());
         }
     }
 }

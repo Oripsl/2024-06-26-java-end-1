@@ -1,17 +1,17 @@
 package pomeriggio.sistemadiprenotazionealberghiera;
 
 public class CameraDoppia extends CameraAlbergo{
-    public CameraDoppia(int numero) {
-        super(numero);
+    public CameraDoppia(int numero, int numeroLetti) {
+        super(numero, numeroLetti);
     }
 
     @Override
     public double calcolaCosto() {
-        return 70.0;
+        return 70.0 * getNumeroLetti();
     }
 
     @Override
-    public int numeroLetti() {
-        return 2;
+    public int getNumeroLetti() {
+        return getLetti();
     }
 }

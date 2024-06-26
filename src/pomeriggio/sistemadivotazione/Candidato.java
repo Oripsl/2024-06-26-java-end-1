@@ -1,4 +1,4 @@
-package pomeriggio;
+package pomeriggio.sistemadivotazione;
 
 import java.util.HashMap;
 import java.util.Map;

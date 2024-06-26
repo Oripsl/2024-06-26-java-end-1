@@ -1,6 +1,6 @@
 import mattina.*;
-import pomeriggio.Candidato;
-import pomeriggio.Elettore;
+import pomeriggio.sistemadivotazione.Candidato;
+import pomeriggio.sistemadivotazione.Elettore;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,7 +8,7 @@ public class Main {
 //        checkStudente();
 //        checkConto();
 //        checkElenco();
-        checkVotazione();
+//        checkVotazione();
     }
 
     public static void checkPrenotazioni() {

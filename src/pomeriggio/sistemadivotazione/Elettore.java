@@ -1,4 +1,4 @@
-package pomeriggio;
+package pomeriggio.sistemadivotazione;
 
 public class Elettore {
     private String name;

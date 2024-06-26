@@ -1,4 +1,6 @@
 import mattina.*;
+import pomeriggio.impiegatoemanager.Impiegato;
+import pomeriggio.impiegatoemanager.Manager;
 import pomeriggio.sistemadiprenotazionealberghiera.CameraAlbergo;
 import pomeriggio.sistemadiprenotazionealberghiera.CameraDoppia;
 import pomeriggio.sistemadiprenotazionealberghiera.CameraSingola;
@@ -21,7 +23,8 @@ public class Main {
 //        checkElenco();
 //        checkVotazione();
 //        checkSistemaDiPrenotazioni();
-        checkSistemaAlbergo();
+//        checkSistemaAlbergo();
+        checkImpiegatoManager();
     }
 
     public static void checkPrenotazioni() {
@@ -210,7 +213,22 @@ public class Main {
             System.out.println("Camera numero: " + camera.getNumero() + ", Tipo: " + camera.getClass().getSimpleName() + ", Costo: " + camera.calcolaCosto() + " Euro, Letti: " + camera.getNumeroLetti());
         }
     }
+
+    public static void checkImpiegatoManager() {
+        Impiegato imp1 = new Impiegato("Mario Rossi", 30000);
+        System.out.println("Nome: " + imp1.getName() + ", Salario: " + imp1.getSalary());
+
+        imp1.aumentaSalario(10);
+        System.out.println("Nome: " + imp1.getName() + ", Salario dopo aumento: " + imp1.getSalary());
+
+        Manager mgr1 = new Manager("Luigi Bianchi", 50000, 5000);
+        System.out.println("Nome: " + mgr1.getName() + ", Salario: " + mgr1.getSalary() + ", Bonus: " + mgr1.getBonus());
+
+        mgr1.aumentaSalario(10);
+        System.out.println("Nome: " + mgr1.getName() + ", Salario dopo aumento: " + mgr1.getSalary());
+    }
 }
+
 
 
 

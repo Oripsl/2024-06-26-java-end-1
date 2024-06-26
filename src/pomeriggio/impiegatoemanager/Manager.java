@@ -12,7 +12,11 @@ public class Manager extends Impiegato{
         if (percentuale < 0) {
             throw new IllegalArgumentException("La percentuale di aumento non può essere negativa");
         }
-        setSalary(getSalary() + bonus);
         super.aumentaSalario(percentuale);
+        setSalary(getSalary() + bonus);
+    }
+
+    public double getBonus() {
+        return bonus;
     }
 }

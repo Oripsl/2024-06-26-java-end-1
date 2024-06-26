@@ -29,6 +29,6 @@ public class Impiegato {
         if (percentuale < 0) {
             throw new IllegalArgumentException("La percentuale di aumento non può essere negativa");
         }
-        salary *= percentuale;
+        salary += salary * percentuale / 100.0;
     }
 }

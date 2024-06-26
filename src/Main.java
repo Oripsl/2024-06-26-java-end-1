@@ -1,10 +1,17 @@
 import mattina.*;
+import pomeriggio.sistemadiprenotazionealberghiera.CameraAlbergo;
+import pomeriggio.sistemadiprenotazionealberghiera.CameraDoppia;
+import pomeriggio.sistemadiprenotazionealberghiera.CameraSingola;
+import pomeriggio.sistemadiprenotazionealberghiera.Suite;
 import pomeriggio.sistemadiprenotazionehotel.Camera;
 import pomeriggio.sistemadiprenotazionehotel.Cliente;
 import pomeriggio.sistemadiprenotazionehotel.ManagerPrenotazioni;
 import pomeriggio.sistemadiprenotazionehotel.Prenotazione;
 import pomeriggio.sistemadivotazione.Candidato;
 import pomeriggio.sistemadivotazione.Elettore;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,7 +20,8 @@ public class Main {
 //        checkConto();
 //        checkElenco();
 //        checkVotazione();
-        checkSistemaDiPrenotazioni();
+//        checkSistemaDiPrenotazioni();
+        checkSistemaAlbergo();
     }
 
     public static void checkPrenotazioni() {
@@ -178,7 +186,32 @@ public class Main {
             System.out.println("Errore nella cancellazione della prenotazione: " + e.getMessage());
         }
     }
+
+    public static void checkSistemaAlbergo() {
+        List<CameraAlbergo> albergo = new ArrayList<>();
+
+        albergo.add(new CameraSingola(101));
+        albergo.add(new CameraDoppia(102));
+        albergo.add(new Suite(103));
+
+        List<CameraAlbergo> camereDisponibili = albergo.stream().filter(CameraAlbergo::isDisponibile).toList();
+        for (CameraAlbergo camera : camereDisponibili) {
+            System.out.println("Camera numero: " + camera.getNumero() + ", Tipo: " + camera.getClass().getSimpleName() + ", Costo: " + camera.calcolaCosto() + " Euro, Letti: " + camera.numeroLetti());
+        }
+
+        if (!camereDisponibili.isEmpty()) {
+            CameraAlbergo cameraDaPrenotare = camereDisponibili.getFirst();
+            cameraDaPrenotare.prenota();
+            System.out.println("Camera numero " + cameraDaPrenotare.getNumero() + " prenotata con successo.");
+        }
+
+        camereDisponibili = albergo.stream().filter(CameraAlbergo::isDisponibile).toList();
+        for (CameraAlbergo camera : camereDisponibili) {
+            System.out.println("Camera numero: " + camera.getNumero() + ", Tipo: " + camera.getClass().getSimpleName() + ", Costo: " + camera.calcolaCosto() + " Euro, Letti: " + camera.numeroLetti());
+        }
+    }
 }
+
 
 
 

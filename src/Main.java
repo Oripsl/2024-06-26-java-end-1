@@ -1,4 +1,8 @@
 import mattina.*;
+import pomeriggio.sistemadiprenotazionehotel.Camera;
+import pomeriggio.sistemadiprenotazionehotel.Cliente;
+import pomeriggio.sistemadiprenotazionehotel.ManagerPrenotazioni;
+import pomeriggio.sistemadiprenotazionehotel.Prenotazione;
 import pomeriggio.sistemadivotazione.Candidato;
 import pomeriggio.sistemadivotazione.Elettore;
 
@@ -9,6 +13,7 @@ public class Main {
 //        checkConto();
 //        checkElenco();
 //        checkVotazione();
+        checkSistemaDiPrenotazioni();
     }
 
     public static void checkPrenotazioni() {
@@ -129,6 +134,51 @@ public class Main {
         System.out.println(candidato1.getName() + ": " + candidato1.getNumeroVoti() + " voti");
         System.out.println(candidato2.getName() + ": " + candidato2.getNumeroVoti() + " voti");
     }
+
+    public static void checkSistemaDiPrenotazioni() {
+        ManagerPrenotazioni manager = new ManagerPrenotazioni();
+        Camera camera1 = new Camera(101, "Singola");
+        Camera camera2 = new Camera(102, "Doppia");
+        Cliente cliente1 = new Cliente("Mario Rossi", "mario.rossi@suacugina.com");
+        Cliente cliente2 = new Cliente("Luca Bianchi", "luca.bianchi@suamamma.com");
+
+        manager.addCamera(camera1);
+        manager.addCamera(camera2);
+        Prenotazione prenotazione1 = null;
+
+        try {
+            prenotazione1 = manager.createPrenotazione(cliente1, camera1, "01/07/2024", "10/07/2024");
+            System.out.println("Prenotazione 1 creata con successo per " + prenotazione1.getCliente().getName());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Errore nella creazione della prenotazione: " + e.getMessage());
+        }
+
+        try {
+            Prenotazione prenotazione2 = manager.createPrenotazione(cliente2, camera1, "05/07/2024", "15/07/2024");
+            System.out.println("Prenotazione 2 creata con successo per " + prenotazione2.getCliente().getName());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Errore nella creazione della prenotazione: " + e.getMessage());
+        }
+
+        try {
+            boolean cancellata = manager.cancelPrenotazione(cliente1, prenotazione1);
+            if (cancellata) {
+                System.out.println("Prenotazione 1 cancellata con successo");
+            }
+        } catch (Exception e) {
+            System.out.println("Errore nella cancellazione della prenotazione: " + e.getMessage());
+        }
+
+        try {
+            boolean cancellata = manager.cancelPrenotazione(cliente2, prenotazione1);
+            if (cancellata) {
+                System.out.println("Prenotazione 2 cancellata con successo");
+            }
+        } catch (Exception e) {
+            System.out.println("Errore nella cancellazione della prenotazione: " + e.getMessage());
+        }
+    }
 }
+
 
 

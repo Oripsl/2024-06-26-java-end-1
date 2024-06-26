@@ -12,7 +12,7 @@ public class ManagerPrenotazioni {
     private List<Camera> camereList = new ArrayList<>();
     private Map<Prenotazione, Cliente> prenotazioniMap = new HashMap<>();
 
-    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public void addCamera(Camera camera) {
         camereList.add(camera);

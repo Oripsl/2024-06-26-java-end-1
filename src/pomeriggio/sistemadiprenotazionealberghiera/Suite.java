@@ -10,10 +10,4 @@ public class Suite extends CameraAlbergo {
         return 110.0 * getNumeroLetti();
     }
 
-    @Override
-    public int getNumeroLetti() {
-        return getLetti();
-    }
-
-
 }

@@ -10,8 +10,4 @@ public class CameraDoppia extends CameraAlbergo{
         return 70.0 * getNumeroLetti();
     }
 
-    @Override
-    public int getNumeroLetti() {
-        return getLetti();
-    }
 }

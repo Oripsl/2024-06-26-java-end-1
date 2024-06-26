@@ -14,9 +14,7 @@ public abstract class CameraAlbergo {
 
     public abstract double calcolaCosto();
 
-    public abstract int getNumeroLetti();
-
-    public int getLetti() {
+    public  int getNumeroLetti() {
         return numeroLetti;
     }
 

@@ -19,10 +19,10 @@ public class Elettore {
     }
 
     public void vote(Candidato candidato) {
-        if(candidato == null || candidato.getName() == null || candidato.getSurname() == null) {
+        if (candidato == null || candidato.getName() == null || candidato.getSurname() == null) {
             throw new IllegalArgumentException("Candidato non trovato");
         }
-        if(hasVoted) {
+        if (hasVoted) {
             throw new IllegalArgumentException("Questo elettore ha gia votato");
         }
         candidato.addVoto(this);

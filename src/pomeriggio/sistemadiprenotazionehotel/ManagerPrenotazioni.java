@@ -9,11 +9,16 @@ import java.util.List;
 import java.util.Map;
 
 public class ManagerPrenotazioni {
-    private List<Camera> camereList = new ArrayList<>();
-    private Map<Prenotazione, Cliente> prenotazioniMap = new HashMap<>();
+    private List<Camera> camereList;
+    private Map<Prenotazione, Cliente> prenotazioniMap;
+
 
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
+    public ManagerPrenotazioni() {
+        camereList = new ArrayList<>();
+        prenotazioniMap = new HashMap<>();
+    }
     public void addCamera(Camera camera) {
         camereList.add(camera);
     }

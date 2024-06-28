@@ -1,3 +1,4 @@
+import _2806esercizipomeriggio.Streams;
 import mattina.*;
 import pomeriggio.impiegatoemanager.Impiegato;
 import pomeriggio.impiegatoemanager.Manager;
@@ -13,6 +14,7 @@ import pomeriggio.sistemadivotazione.Candidato;
 import pomeriggio.sistemadivotazione.Elettore;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -24,7 +26,15 @@ public class Main {
 //        checkVotazione();
 //        checkSistemaDiPrenotazioni();
 //        checkSistemaAlbergo();
-        checkImpiegatoManager();
+//        checkImpiegatoManager();
+        List<String> names = Arrays.asList("Anna", "Marco", "Giulia", "Luca", "Maria");
+        System.out.println(Streams.revAlphabeticalOrder(names));
+        System.out.println(Streams.filterStrings(names, 'A'));
+        List<Integer> nums = Arrays.asList(14, 18, 22, 33, 55);
+        List<Double> numsD = Arrays.asList(14d, 18d, 22d, 33d, 55d);
+        System.out.println(Streams.findEvenNum(nums));
+        System.out.println(Streams.sumNums(numsD));
+        System.out.println(Streams.squareNums(nums));
     }
 
     public static void checkPrenotazioni() {
@@ -215,13 +225,13 @@ public class Main {
     }
 
     public static void checkImpiegatoManager() {
-        Impiegato imp1 = new Impiegato("Mario Rossi", 30000);
+        Impiegato imp1 = new Impiegato("Coglione1", 30000);
         System.out.println("Nome: " + imp1.getName() + ", Salario: " + imp1.getSalary());
 
         imp1.aumentaSalario(10);
         System.out.println("Nome: " + imp1.getName() + ", Salario dopo aumento: " + imp1.getSalary());
 
-        Manager mgr1 = new Manager("Luigi Bianchi", 50000, 5000);
+        Manager mgr1 = new Manager("Coglione2", 50000, 5000);
         System.out.println("Nome: " + mgr1.getName() + ", Salario: " + mgr1.getSalary() + ", Bonus: " + mgr1.getBonus());
 
         mgr1.aumentaSalario(10);

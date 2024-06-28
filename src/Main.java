@@ -1,41 +1,29 @@
 import _2806esercizipomeriggio.Streams;
-import mattina.*;
-import pomeriggio.impiegatoemanager.Impiegato;
-import pomeriggio.impiegatoemanager.Manager;
-import pomeriggio.sistemadiprenotazionealberghiera.CameraAlbergo;
-import pomeriggio.sistemadiprenotazionealberghiera.CameraDoppia;
-import pomeriggio.sistemadiprenotazionealberghiera.CameraSingola;
-import pomeriggio.sistemadiprenotazionealberghiera.Suite;
-import pomeriggio.sistemadiprenotazionehotel.Camera;
-import pomeriggio.sistemadiprenotazionehotel.Cliente;
-import pomeriggio.sistemadiprenotazionehotel.ManagerPrenotazioni;
-import pomeriggio.sistemadiprenotazionehotel.Prenotazione;
-import pomeriggio.sistemadivotazione.Candidato;
-import pomeriggio.sistemadivotazione.Elettore;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-//        checkPrenotazioni();
-//        checkStudente();
-//        checkConto();
-//        checkElenco();
-//        checkVotazione();
-//        checkSistemaDiPrenotazioni();
-//        checkSistemaAlbergo();
-//        checkImpiegatoManager();
+        /*
+        checkPrenotazioni();
+        checkStudente();
+        checkConto();
+        checkElenco();
+        checkVotazione();
+        checkSistemaDiPrenotazioni();
+        checkSistemaAlbergo();
+        checkImpiegatoManager();
+         */
         List<String> names = Arrays.asList("Anna", "Marco", "Giulia", "Luca", "Maria");
         System.out.println(Streams.revAlphabeticalOrder(names));
         System.out.println(Streams.filterStrings(names, 'A'));
         List<Integer> nums = Arrays.asList(14, 18, 22, 33, 55);
         System.out.println(Streams.findEvenNum(nums));
-        System.out.println(nums.stream().map(Double::valueOf).toList());
+        System.out.println(Streams.sumNums(nums.stream().map(Double::valueOf).toList()));
         System.out.println(Streams.squareNums(nums));
     }
-
+/*
     public static void checkPrenotazioni() {
         Prenotazioni prenotazioni = new Prenotazioni(20);
         System.out.println(prenotazioni.reserveSeat());
@@ -236,6 +224,8 @@ public class Main {
         mgr1.aumentaSalario(10);
         System.out.println("Nome: " + mgr1.getName() + ", Salario dopo aumento: " + mgr1.getSalary());
     }
+    */
+}
 }
 
 

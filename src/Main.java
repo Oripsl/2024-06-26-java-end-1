@@ -31,9 +31,8 @@ public class Main {
         System.out.println(Streams.revAlphabeticalOrder(names));
         System.out.println(Streams.filterStrings(names, 'A'));
         List<Integer> nums = Arrays.asList(14, 18, 22, 33, 55);
-        List<Double> numsD = Arrays.asList(14d, 18d, 22d, 33d, 55d);
         System.out.println(Streams.findEvenNum(nums));
-        System.out.println(Streams.sumNums(numsD));
+        System.out.println(nums.stream().map(Double::valueOf).toList());
         System.out.println(Streams.squareNums(nums));
     }
 
